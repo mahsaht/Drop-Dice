@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop Dice</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script>
+        function _(id) {
+            return document.querySelector(id);
+        }
+
+        function _all(id) {
+            return document.querySelectorAll(id);
+        }
+
+        function rand(a, b) {
+            return Math.floor(Math.random() * Math.abs(b - a) + Math.min(a, b));
+        }
+
+        function randColor() {
+            return "a" + Math.random().toString(16).substr(-6);
+        }
+
+        function _(id) { return document.querySelector(id); }
+        function rand(a, b) {
+            return Math.floor(Math.random() * Math.abs(b - a) + Math.min(a, b));
+        }
+
+        window.addEventListener('DOMContentLoaded', function (e) {
+            _('#btn1').addEventListener('click', function () {
+                n1 = rand(1, 7);
+                n2 = rand(1, 7);
+                _('#d1').style.backgroundImage = 'url(images/dice' + n1 + '.jpg)';
+                _('#d2').style.backgroundImage = 'url(images/dice' + n2 + '.jpg)';
+                _('#d1').style.transform = 'rotate(' + rand(1, 720) + 'deg)';
+                _('#d2').style.transform = 'rotate(' + rand(1, 720) + 'deg)';
+
+                if (n1 == n2) {
+                    _('#d1').classList.add('joft');
+                    _('#d2').classList.add('joft');
+
+                    if (n1 == 6) {
+                        _('#d1').classList.add('joft6');
+                        _('#d2').classList.add('joft6');
+                    } else {
+                        _('#d1').classList.remove('joft6');
+                        _('#d2').classList.remove('joft6');
+                    }
+                } else {
+                    _('#d1').classList.remove('joft');
+                    _('#d2').classList.remove('joft');
+                    _('#d1').classList.remove('joft6');
+                    _('#d2').classList.remove('joft6');
+                }
+            });
+        });
+
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <h1>Drop Dice</h1>
+    </header>
+    <main>
+        <button id="btn1">Drop Dice</button> <br>
+        <div id="d1"></div>
+        <div id="d2"></div>
+    </main>
+    
+</body>
+
+</html>

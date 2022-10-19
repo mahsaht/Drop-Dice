@@ -1,0 +1,19 @@
+#d1,
+#d2 {
+  width: 80px;
+  height: 80px;
+  background-color: #b0dada;
+  display: inline-block;
+  margin: 20px;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center center;
+}
+
+.joft {
+  border: 2px solid blue !important;
+}
+
+.joft6 {
+  border: 5px solid red !important;
+}
